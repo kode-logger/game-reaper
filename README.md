@@ -1,4 +1,5 @@
 # Game-Reaper
-A program that Leeches games from third-party websites.
 
-`Only for Educational Purpose, using for illegal purpose will not be appreciated.`
+A program that gathers data about a searched game from several third-party sites and gives you a short detail on the game.
+
+**Only for Educational Purpose and Evaluation Purpose, using for illegal purpose will not be appreciated.**

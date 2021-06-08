@@ -3,9 +3,15 @@ import requests
 from urllib.parse import urljoin
 import re
 import textwrap
+import argparse
 
-gameData = {'crotorrents': [], 'steamunlocked': [], 'igg-games': []}
+gameData = {'crotorrents': [], 'skidrow': []}
 
+def getServerNames():
+    serverName = "\n"
+    for index, name in enumerate(gameData.keys()):
+        serverName += "[{}] {}\n".format(index + 1, name)
+    return serverName
 
 class CroTorrents:
     def __init__(self):
@@ -78,8 +84,7 @@ class CroTorrents:
                 # get description from the website
                 # if regex statement returns a list of length 1, then the description is a bit different to retrieve
                 if len(re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())) == 1:
-                    gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[
-                        0].split('\n\n')  # split the whole text by '\n\n'
+                    gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[0].split('\n\n')  # split the whole text by '\n\n'
                     # the description was always found at 77th index of the list, for any input that satisfies the above if condition
                     try:
                         # some descriptions had '<game-name> Overview\n' string with the description and those were removed here
@@ -88,26 +93,25 @@ class CroTorrents:
                         # these descriptions doesn't contain '<game-name> Overview\n'.
                         gameDescription = gameDescription[77]
                 else:  # if description retrieval is direct from the webpage, then
-                    gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[
-                        1].split('\n\n')[0]
-
+                    gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[1].split('\n\n')[0]
                 # save the data in a dictionary and add it to the global list.
                 game = {'name': gameName, 'download_link': gameDLink, 'weblink': game, 'description': gameDescription,
                         'sysreq': gameRequirements}
                 gameData['crotorrents'].append(game)
 
-    def croPrinter(self):
+    def croVerbosePrinter(self):
         i = 1
+        print(f"[Crotorrents] -> Found {len(gameData['crotorrents'])} game(s) related to the search.")
         for game in gameData['crotorrents']:
             print(f"\n----------------------[{i}]----------------------")
-            print('Name: \n\t' + game['name'])
-            print('\nMagnet Link: \n\t' + game['download_link'])
-            print('\nWebpage Link: \n\t' + game['weblink'])
-            print('\nDescription:')
+            print(' Name: \n\t' + game['name'])
+            print('\n Magnet Link: \n\t' + game['download_link'])
+            print('\n Webpage Link: \n\t' + game['weblink'])
+            print('\n Description:')
             desc = textwrap.TextWrapper(width=80).wrap(text=game['description'])
             for text in desc:
                 print('\t' + text)
-            print('\nSystem Requirements:')
+            print('\n System Requirements:')
             for req in game['sysreq']:
                 print('\t' + req)
             i += 1
@@ -121,12 +125,24 @@ class CroTorrents:
         self.set_searchString(search)
         self.set_searchData()
         self.getPageLink()
-        self.croPrinter()
+        self.croVerbosePrinter()
 
 
 if __name__ == '__main__':
-    searchQuery = input("Enter the game name to search: ")
+
+    parser = argparse.ArgumentParser(description="A program to get details of a game from Third-Party websites.")
+    parser.add_argument('-g','--game', help='Search string, used to search for the game on available servers.')
+    parser.add_argument('-s','--server', help='Name of the server to use. Available servers: \n' + getServerNames())
+    arguments = parser.parse_args()
+
+    cmdArgs = vars(arguments)
+
     try:
+        searchQuery = cmdArgs['game']
+        if searchQuery is None:
+            searchQuery = input("Enter the name of the game: ")
+        if cmdArgs['server'] is not None:
+            print(cmdArgs['server'])
         CroTorrents().croProcess(searchQuery)
     except requests.exceptions.ConnectionError:
         print("Cannot access Internet.")
