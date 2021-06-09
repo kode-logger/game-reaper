@@ -8,6 +8,10 @@ import argparse
 gameData = {'crotorrents': [], 'skidrow': []}
 
 def getServerNames():
+    """
+    A method to return the names of available servers.
+    :return: None
+    """
     serverName = "\n"
     for index, name in enumerate(gameData.keys()):
         serverName += "[{}] {}\n".format(index + 1, name)
@@ -100,32 +104,57 @@ class CroTorrents:
                 gameData['crotorrents'].append(game)
 
     def croVerbosePrinter(self):
-        i = 1
-        print(f"[Crotorrents] -> Found {len(gameData['crotorrents'])} game(s) related to the search.")
-        for game in gameData['crotorrents']:
-            print(f"\n----------------------[{i}]----------------------")
-            print(' Name: \n\t' + game['name'])
-            print('\n Magnet Link: \n\t' + game['download_link'])
-            print('\n Webpage Link: \n\t' + game['weblink'])
-            print('\n Description:')
+        """
+        A method to verbose print the game data obtained from Crotorrent server.
+        :return: None
+        """
+
+        print("[Crotorrents] -> Found {} game(s) related to the search.".format(len(gameData['crotorrents'])))
+        for index, game in enumerate(gameData['crotorrents']):
+            print('\n [{}>] {}'.format(index + 1, game['name']))
+            print('\n\t[-] Magnet Link:') #+ game['download_link'])
+            magnet = textwrap.TextWrapper(width=80).wrap(text=game['download_link'])
+            for link in magnet:
+                print('\t\t' + link)
+            print('\n\t[-] Webpage Link: \n\t\t' + game['weblink'])
+            print('\n\t[-] Description:')
             desc = textwrap.TextWrapper(width=80).wrap(text=game['description'])
             for text in desc:
-                print('\t' + text)
-            print('\n System Requirements:')
+                print('\t\t' + text)
+            print('\n\t[-] System Requirements:')
             for req in game['sysreq']:
-                print('\t' + req)
-            i += 1
+                print('\t\t' + req)
 
-    def croProcess(self, search):
+    def croPrinter(self):
+        """
+        A method to print less information on game data obtained from Crotorrent server.
+        :return: None
+        """
+
+        print("[Crotorrents] -> Found {} game(s) related to the search.".format(len(gameData['crotorrents'])))
+        for index, game in enumerate(gameData['crotorrents']):
+            print('\n[{}>] {}'.format(index + 1, game['name']))
+            print('\n\t[-] Magnet Link:')
+            magnet = textwrap.TextWrapper(width=80).wrap(text=game['download_link'])
+            for link in magnet:
+                print('\t\t' + link)
+            desc = textwrap.TextWrapper(width=80).wrap(text=game['description'])
+            print('\n\t[-] Description: ')
+            for text in desc:
+                print("\t\t {}".format(text))
+            
+
+    def croProcess(self, search, verbose=False):
         """
         The driver method to search for a game from crotorrents server.
         :param search: Search string entered by the user.
-        :return:
+        :return: None
         """
         self.set_searchString(search)
         self.set_searchData()
         self.getPageLink()
-        self.croVerbosePrinter()
+        # Use VerbosePrinter if verbose mode is enabled, else you normal Printer.
+        self.croVerbosePrinter() if verbose else self.croPrinter()
 
 
 if __name__ == '__main__':
@@ -133,6 +162,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="A program to get details of a game from Third-Party websites.")
     parser.add_argument('-g','--game', help='Search string, used to search for the game on available servers.')
     parser.add_argument('-s','--server', help='Name of the server to use. Available servers: \n' + getServerNames())
+    parser.add_argument('-v', '--verbose', action='store_true', help='Views more detail on the game')
     arguments = parser.parse_args()
 
     cmdArgs = vars(arguments)
@@ -140,9 +170,11 @@ if __name__ == '__main__':
     try:
         searchQuery = cmdArgs['game']
         if searchQuery is None:
-            searchQuery = input("Enter the name of the game: ")
+            searchQuery = input("[<] Enter the name of the game: ")
         if cmdArgs['server'] is not None:
             print(cmdArgs['server'])
-        CroTorrents().croProcess(searchQuery)
+        CroTorrents().croProcess(searchQuery, cmdArgs['verbose'])
     except requests.exceptions.ConnectionError:
-        print("Cannot access Internet.")
+        print("\n[!] Cannot access Internet.")
+    except KeyboardInterrupt:
+        print("\n[#] You terminated me without showing any mercy. :(")
