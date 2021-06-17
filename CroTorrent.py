@@ -105,7 +105,7 @@ class CroTorrents:
         :return: None
         """
 
-        print("[Crotorrents] -> Found {} game(s) related to the search.".format(len(self.gameData)))
+        print('[Crotorrents] -> Found {} game(s) related to the search.'.format(len(self.gameData)))
         for index, game in enumerate(self.gameData):
             print('\n [{}>] {}'.format(index + 1, game['name']))
             print('\n\t[-] Magnet Link:')  # + game['download_link'])
@@ -127,7 +127,7 @@ class CroTorrents:
         :return: None
         """
 
-        print("[Crotorrents] -> Found {} game(s) related to the search.".format(len(self.gameData)))
+        print('[Crotorrents] -> Found {} game(s) related to the search.'.format(len(self.gameData)))
         for index, game in enumerate(self.gameData):
             print('\n[{}>] {}'.format(index + 1, game['name']))
             print('\n\t[-] Magnet Link:')
