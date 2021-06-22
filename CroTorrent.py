@@ -9,7 +9,7 @@ import textwrap
 class CroTorrents:
     def __init__(self):
         """
-        User defined constructor for CroTorrents class.
+        constructor for CroTorrents class.
         :return: None
         """
         self.gameData = list()
@@ -108,7 +108,7 @@ class CroTorrents:
         print('[Crotorrents] -> Found {} game(s) related to the search.'.format(len(self.gameData)))
         for index, game in enumerate(self.gameData):
             print('\n [{}>] {}'.format(index + 1, game['name']))
-            print('\n\t[-] Magnet Link:')  # + game['download_link'])
+            print('\n\t[-] Magnet Link:')
             magnet = textwrap.TextWrapper(width=80).wrap(text=game['download_link'])
             for link in magnet:
                 print('\t\t' + link)

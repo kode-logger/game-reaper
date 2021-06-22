@@ -32,6 +32,7 @@ if __name__ == '__main__':
         if searchQuery is None:
             searchQuery = input('[<] Enter the name of the game: ')
 
+        # New Server feature
         # if cmdArgs['server'] is not None:
         #     print(cmdArgs['server'])
         #  Server feature is disabled for now.
