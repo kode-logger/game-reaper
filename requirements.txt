@@ -1,3 +1,8 @@
 requests~=2.25.1
 bs4~=0.0.1
 beautifulsoup4~=4.9.3
+argparse~=1.4.0
+pyfiglet~=0.8.post1
+clint~=0.5.1
+PyInquirer~=1.0.3
+animation~=0.0.7

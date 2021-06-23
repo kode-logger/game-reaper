@@ -3,7 +3,7 @@
 A program that gathers data about a game from several third-party sites and gives you a short detail on the game that
 you had searched.
 
-Not only this, but you might be able to get even get download links to the game that is if you are not able to afford it
+Not only this, but you might be able to get download links to the game that is if you are not able to afford it
 and yet if you still want to experience the gameplay. But, it is strictly mentioned that this project does not support
 game piracy, and we recommend you to support the developers by buying the game from their official webpage.
 

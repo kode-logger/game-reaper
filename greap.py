@@ -2,7 +2,7 @@ import argparse
 from requests.exceptions import ConnectionError
 
 from CroTorrent import CroTorrents
-
+from CommandLineInterface import CLI
 gameData = {'crotorrents': [], 'skidrow': []}
 
 
@@ -30,17 +30,16 @@ if __name__ == '__main__':
     try:
         searchQuery = cmdArgs['game']
         if searchQuery is None:
-            searchQuery = input('[<] Enter the name of the game: ')
+            CLI(gameData=gameData).main_menu()
+        else:
+            # New Server feature
+            # if cmdArgs['server'] is not None:
+            #     print(cmdArgs['server'])
+            #  Server feature is disabled for now.
 
-        # New Server feature
-        # if cmdArgs['server'] is not None:
-        #     print(cmdArgs['server'])
-        #  Server feature is disabled for now.
-
-        croBoi = CroTorrents()  # A crotorrent Object to access all the methods.
-
-        gameData['crotorrents'] = croBoi.croProcess(searchQuery)  # getting Game Data from the cro server
-        croBoi.croVerbosePrinter() if cmdArgs['verbose'] else croBoi.croPrinter()  # Do verbose print if requested
+            croBoi = CroTorrents()  # A crotorrent Object to access all the methods.
+            gameData['crotorrents'] = croBoi.croProcess(searchQuery)  # getting Game Data from the cro server
+            croBoi.croVerbosePrinter() if cmdArgs['verbose'] else croBoi.croPrinter()  # Do verbose print if requested
 
     except ConnectionError as con_error:
         print('\n[!] Cannot access Internet.')
