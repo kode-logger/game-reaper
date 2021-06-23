@@ -81,22 +81,34 @@ class CroTorrents:
 
                 # get description from the website
                 # if regex statement returns a list of length 1, then the description is a bit different to retrieve
-                if len(re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())) == 1:
-                    gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[
-                        0].split('\n\n')  # split the whole text by '\n\n'
-                    # the description was always found at 77th index of the list, for any input that satisfies the above if condition
-                    try:
-                        # some descriptions had '<game-name> Overview\n' string with the description and those were removed here
-                        gameDescription = gameDescription[77].split('\n')[1]
-                    except IndexError:
-                        # these descriptions doesn't contain '<game-name> Overview\n'.
-                        gameDescription = gameDescription[77]
-                else:  # if description retrieval is direct from the webpage, then
-                    gameDescription = \
-                        re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[1].split('\n\n')[0]
+                try:
+                    # try to find the <div> that contains description.
+                    gameDescription = webpage.find('div', {'class': 'game_area_description'}).get_text()
+
+                except AttributeError:
+                    if len(re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())) == 1:
+                        gameDescription = re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[
+                            0].split('\n\n')  # split the whole text by '\n\n'
+                        # the description was always found at 77th index of the list, for any input that satisfies the above if condition
+                        try:
+                            # some descriptions had '<game-name> Overview\n' string with the description and those were removed here
+                            gameDescription = gameDescription[77].split('\n')[1]
+                        except IndexError:
+                            # these descriptions doesn't contain '<game-name> Overview\n'.
+                            gameDescription = gameDescription[77]
+                    else:  # if description retrieval is direct from the webpage, then
+                        gameDescription = \
+                            re.split('(?i)\n{1,2}' + gameName + ' Overview[:\n\t]+', webpage.get_text())[1].split(
+                                '\n\n')[0]
+
                 # save the data in a dictionary and add it to the global list.
-                game = {'name': gameName, 'download_link': gameDLink, 'weblink': game, 'description': gameDescription,
-                        'sysreq': gameRequirements}
+                game = {
+                    'name': gameName,
+                    'download_link': gameDLink,
+                    'weblink': game,
+                    'description': gameDescription,
+                    'sysreq': gameRequirements
+                }
                 self.gameData.append(game)
 
     def croVerbosePrinter(self):
