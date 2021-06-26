@@ -1,9 +1,13 @@
+# third-party packages
 import argparse
 from requests.exceptions import ConnectionError
 
+# custom packages
 from CroTorrent import CroTorrents
 from CommandLineInterface import CLI
-gameData = {'crotorrents': [], 'skidrow': []}
+
+# global variables
+gameData = {'crotorrents': None}
 
 
 def getServerNames():
