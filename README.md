@@ -7,7 +7,7 @@ Not only this, but you might be able to get download links to the game that is i
 and yet if you still want to experience the gameplay. But, it is strictly mentioned that this project does not support
 game piracy, and we recommend you to support the developers by buying the game from their official webpage.
 
-This project was started as a project to test my web scraping skills, but I thought why not help some gamers to search
+This project was started to test my web scraping skills, but I thought why not help some gamers to search
 about games faster. It would be a lot of work to open a browser and search for a game to know more about it. If you are
 a person who loves to use console or command line programs then this might be useful for you.
 
