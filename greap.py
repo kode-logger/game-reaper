@@ -3,7 +3,7 @@ import argparse
 from requests.exceptions import ConnectionError
 
 # custom packages
-from CroTorrent import CroTorrents
+from Server.CroTorrent.CroTorrent import CroTorrents
 from CommandLineInterface import CLI
 
 # global variables

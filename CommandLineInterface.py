@@ -10,7 +10,7 @@ from clint.textui import colored, puts  # used to manage CLI backend and a bit o
 from examples import custom_style_3  # used to change the style of PyInquirer
 
 # custom packages
-from CroTorrent import CroTorrents  # used to gather data from the crotorrents server
+from Server.CroTorrent.CroTorrent import CroTorrents  # used to gather data from the crotorrents server
 
 
 def goBack():
@@ -176,7 +176,8 @@ class CLI:
 
     def greap_help(self):
         header()
-        puts(colored.blue('Help Content here...\n'))
+        # add a feature to retrieve help content from a local binary encoded file.
+
         goBack()
         self.main_menu()
 
