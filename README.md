@@ -20,3 +20,12 @@ GameReaper: Keep an eye on me, because my maker will be uploading further update
 ## Hey, you want to contribute?
 
 Well you can do that too. I would really appreciate if you can support my project by fixing up issues or bugs.  
+
+
+## TODO List:
+- [ ] Fix minor printing issues.
+- [ ] Add proxy feature to let users scrape data safely.
+- [ ] Add other third-party servers.
+- [ ] Add a proper user documentation and developer documentation.
+- [ ] Add more images and logos.
+- [ ] Develop GUI version of this project.
