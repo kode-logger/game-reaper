@@ -77,10 +77,15 @@ class CroTorrents:
 
                 # get magnet URL
                 gameDLink = ''
-                links = webpage.find_all('a')
-                for link in links:
-                    if re.search('^magnet:?', link['href']):
-                        gameDLink = link['href']
+                try:
+                    # look for href attribute in a tag which contains the magnet link
+                    links = webpage.find_all('a')
+                    for link in links:
+                        if re.search('^magnet:?', link['href']):
+                            gameDLink = link['href']
+                except KeyError:
+                    # if there is no href attribute present or no magnet link is found then...
+                    gameDLink = 'Not Available'
 
                 # get name of the game from the website
                 gameName = webpage.title.string.partition(' Torrent')[0]
