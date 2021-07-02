@@ -198,7 +198,7 @@ class CroTorrents:
             self.croGamePrinter(game['name'])
             puts(colored.red("-+-" * 35))
 
-    @animation.wait('ellipses with text', text='[!] Fetching Data from CroTorrent Server', speed=0.1, color='green')
+    @animation.wait('bar', text='[!] Fetching Data from CroTorrent Server', speed=0.1, color='green')
     def croProcess(self, search):
         """
         The driver method to search for a game from crotorrents server.
