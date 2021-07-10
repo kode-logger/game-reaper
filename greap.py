@@ -12,7 +12,7 @@ gameData = {'crotorrents': None}
 
 def getServerNames():
     """
-    A method to return the names of available servers.
+    A method to return the names of available servers, used only for printing in help.
     :return: None
     """
     serverName = "\n"
