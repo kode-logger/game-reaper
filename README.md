@@ -15,7 +15,7 @@ Please make sure to STAR the repository so that you won't miss out any latest up
 
 **Only for Educational Purpose, using for illegal purpose will not be appreciated.**
 
-GameReaper: Keep an eye on me, because my maker will be uploading further updates and documentation soon.
+We will be uploading further updates and documentation soon.
 
 ## Hey, you want to contribute?
 
