@@ -1,0 +1,18 @@
+{
+  "author": {
+    "name": "kode-logger",
+    "link": "https://github.com/kode-logger"
+  },
+  "program": {
+    "name": "game-reaper",
+    "version": "0.0.1 Alpha",
+    "link": "https://github.com/kode-logger/game-reaper",
+    "docs": "https://github.com/kode-logger/game-reaper/wiki",
+    "servers": [
+      {
+        "name": "crotorrents",
+        "link": "https://crotorrents.com/"
+      }
+    ]
+  }
+}

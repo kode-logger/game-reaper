@@ -1,5 +1,6 @@
 # python packages
 from __future__ import print_function, unicode_literals  # used by PyInquirer
+import json  # used to access and handle json file
 import os  # used to implement some required system commands
 import requests  # used tp handle network connection error
 
@@ -12,6 +13,15 @@ from examples import custom_style_3  # used to change the style of PyInquirer
 # custom packages
 from Server.CroTorrent.CroTorrent import CroTorrents  # used to gather data from the crotorrents server
 
+try:
+    with open('meta.json', 'r') as file:
+        meta_data = json.load(file)
+
+except FileNotFoundError:
+    print(colored.red("[!] Source Data is Corrupt, try reinstalling the program."))
+    print(colored.green("[->] Visit this link for further help: https://github.com/kode-logger/game-reaper/wiki"))
+    exit(0)
+
 
 def goBack():
     menuOpt = {
@@ -20,31 +30,29 @@ def goBack():
         'message': 'Press Enter to',
         'choices': ['Go Back']
     }
-    user = prompt(menuOpt, style=custom_style_3, qmark='[<]')
+    prompt(menuOpt, style=custom_style_3, qmark='[<]')
 
 
 def header():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     # printing Title and adding colour to it
-    heading = pyfiglet.figlet_format('GReap', 'standard')
-    puts(colored.blue(heading))
+    heading = pyfiglet.figlet_format(meta_data['program']['name'].title(), 'digital')
+    print(colored.blue(heading))
 
 
 def title():
     # clearing the terminal screen
     header()
     about = f'''
-Author: KodeLogger [https://github.com/kode-logger]
+Author: {meta_data['author']['name'].title()} [{meta_data['author']['link']}]
+Version: {meta_data['program']['version']}
 
-[+] This program is recommended for personal use only.
-[+] Use of this program for exploiting or any other illegal usage will not be accepted.
-[+] This program does not intend to harm any developers, it was created to get details of a game.
-            '''
-    note = '    [!] This program is still under development.'
+[+] This program does not intend to harm any developers, it was created to get details of a game.'''
+    note = '[!] This program is still under development.'
 
-    puts(colored.blue(about))
-    puts(colored.red(note))
+    print(colored.blue(about))
+    print(colored.red(note))
     print('\n')
 
 
@@ -80,7 +88,7 @@ class CLI:
         elif user['menu'] == 'Help':
             self.greap_help()
         elif user['menu'] == 'Exit':
-            puts(colored.green('[#] Thank you for using Game Reaper.'))
+            print(colored.green('[#] Thank you for using Game Reaper.'))
             exit(0)
 
     def get_search_query(self):
@@ -126,7 +134,8 @@ class CLI:
             if len(self.serverGameList) == 0:
                 for server in self.selectedServers:
                     self.serverGameList.append(
-                        Separator("\n<========   " + server + "   ========>\n"))  # adds server name as a section to the view
+                        Separator(
+                            '\n<========   ' + server + '   ========>\n'))  # adds server name as a section to the view
                     if len(self.gameData[server]) > 0:
                         for game in self.gameData[server]:
                             self.serverGameList.append({'name': str(i) + ') ' + game['name'], 'server': server})
@@ -140,7 +149,7 @@ class CLI:
             viewGame = {
                 'type': 'list',
                 'name': 'option',
-                'message': 'Enter the serial number of the game to know more about it:',
+                'message': 'Select a game to know more about it:',
                 'choices': self.serverGameList
             }
             user = prompt(viewGame, style=custom_style_3, qmark='[<]')
@@ -168,16 +177,29 @@ class CLI:
 
             self.view_game_list()  # prompts the user with available games
         except requests.exceptions.ConnectionError:
-            puts(colored.red('[!] Hey, I am not able to connect to the Internet.'))
-            puts(colored.red('[!] Please check your Internet connection !!'))
+            print(colored.red('[!] Hey, I am not able to connect to the Internet.'))
+            print(colored.red('[!] Please check your Internet connection !!'))
 
     def initServerObjects(self):
         self.croBoi = CroTorrents()
 
     def greap_help(self):
         header()
-        # add a feature to retrieve help content from a local binary encoded file.
+        help_content = colored.blue("\nAuthor: \n\t Name -> ") + colored.red(
+            meta_data['author']['name']) + colored.blue(
+            "\n\t Link -> ") + colored.red(meta_data['author']['link']) + colored.blue(
+            "\n\nProgram: \n\t Name -> ") + colored.red(meta_data['program']['name']) + colored.blue(
+            "\n\t Version -> ") + colored.red(meta_data['program']['version']) + colored.blue(
+            "\n\t Link -> ") + colored.red(meta_data['program']['link']) + colored.blue(
+            "\n\t Documentation / Help -> ") + colored.red(meta_data['program']['docs']) + colored.blue(
+            "\n\nAvailable servers:")
 
+        for index, server in enumerate(meta_data['program']['servers']):
+            help_content += colored.red(f'\n\t {index + 1}. {server["name"]} [{server["link"]}]')
+
+        help_content += '\n'
+
+        print(help_content)
         goBack()
         self.main_menu()
 
