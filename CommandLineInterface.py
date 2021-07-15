@@ -7,7 +7,7 @@ import requests  # used tp handle network connection error
 # third-party packages
 import pyfiglet  # used to get ascii art of a text
 from PyInquirer import prompt, Separator  # used to prompt user and get input
-from clint.textui import colored, puts  # used to manage CLI backend and a bit of frontend
+from clint.textui import colored  # used to manage CLI backend and a bit of frontend
 from examples import custom_style_3  # used to change the style of PyInquirer
 
 # custom packages
