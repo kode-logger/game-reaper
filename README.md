@@ -1,5 +1,7 @@
 # Game-Reaper
 
+<img src="https://raw.githubusercontent.com/kode-logger/resource-data-storage/main/game-reaper/MainBanner.png" alt="Main Banner" width=100% height=80%>
+
 A program that gathers data about a game from several third-party sites and gives you a short detail on the game that
 you had searched.
 
