@@ -21,5 +21,15 @@ This program will look good with **Windows Terminal** or some other modern termi
 
 I would really appreciate if you can support my project by fixing up issues and bugs, especially adding new servers and stuff. To get a better understanding on the brains of this project, I suggest you to go through the [Developer Documentation](https://github.com/kode-logger/game-reaper/wiki/Dev-Doc). 
 
-## Sample Screenshots
+## Running the program
 
+- ### The Interactive Commandline:
+```shell
+   Windows:
+               $> python greap.py
+                        or
+               $> py greap.py
+               
+   Ubuntu:
+               $> python3 greap.py
+```
