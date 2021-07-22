@@ -10,6 +10,7 @@ Not only this, but you might be able to get download links to the game that is i
 This project was started to test my web scraping skills, but I thought why not help some gamers to search about games faster. It would be a lot of work to open a browser and search for a game to know more about it. If you are a person who loves to use console or command line programs then this might be useful for you.
 
 Please make sure to STAR the repository so that you won't miss out any latest updates 😆
+
 **Only for Educational Purpose, using for illegal purpose will not be appreciated.**
 
 We will be releasing further updates and documentation soon.
