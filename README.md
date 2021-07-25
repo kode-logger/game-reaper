@@ -17,19 +17,65 @@ We will be releasing further updates and documentation soon.
 
 This program will look good with **Windows Terminal** or some other modern terminals.
 
-## Hey, you want to contribute?
+## 📢 Hey, you want to contribute?
 
 I would really appreciate if you can support my project by fixing up issues and bugs, especially adding new servers and stuff. To get a better understanding on the brains of this project, I suggest you to go through the [Developer Documentation](https://github.com/kode-logger/game-reaper/wiki/Dev-Doc). 
 
-## Running the program
+## 📢 Installing the tool
+
+This program requires python 3.x.x and some other python packages which can be installed by following the given steps.
+
+### 1.  Downloading / Cloning the repository
+
+   You are free to **choose one of the following** instruction to download the program.
+
+   - You can either download any version of the tool by going to [releases](https://github.com/kode-logger/game-reaper/releases) and download the zip file. Extract the zip file to your desired directory.
+                                                                          
+   - You can also clone the repository on your local machine to do the same but you need to be a bit familiar with Git and also must have Git desktop or bash version. Checkout [GitHub Clone Repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) to know more on cloning this repository.
+     
+
+### 2. Installing requirements:
+
+   Execute the following commands on your desired terminal to install the necessary packages to run the program, without these packages the program will not be able to run.
+
+   ```shell
+      Windows:
+      $> pip install -r requirements.txt
+
+      Ubuntu:
+      $> pip3 install -r requirements.txt
+   ```
+
+
+## 📢 Running the program
+
+The program can be executed in two different methods. The first is `The Interactive Commandline` which is really an ... interactive commandline and the other method is `The Args` which is simply passing your arguments with your command so only output is displayed directly. 
+
+I recommend you to use `The Interactive Commandline` as it is really user friendly and is easy to use.
 
 - ### The Interactive Commandline:
 ```shell
    Windows:
-               $> python greap.py
-                        or
-               $> py greap.py
-               
+   $> python greap.py
+   
    Ubuntu:
-               $> python3 greap.py
+   $> python3 greap.py
 ```
+
+- ### The Args:
+```shell
+   Windows:
+   $> python greap.py --game "<game name>" --server 1 --verbose
+                           (or)
+   $> python greap.py -g "<game name>" -s 1 -v
+                           
+   Ubuntu:
+   $> python3 greap.py --game <"game name"> --server 1 --verbose
+                           (or)
+   $> python3 greap.py -g "<game name>" -s 1 -v
+   
+```
+
+## 📢 Have any doubts?
+
+Proceed to [Discussions](https://github.com/kode-logger/game-reaper/discussions) and feel free to select the appropriate discussion section or channel to share your idea, questions and more.
