@@ -25,6 +25,14 @@ I would really appreciate if you can support my project by fixing up issues and 
 
 This program requires python 3.x.x and some other python packages which can be installed by following the given steps.
 
+### Packages used:
+- beautifulsoup4
+- argparse
+- pyfiglet
+- clint
+- PyInquirer
+- animation
+
 ### 1.  Downloading / Cloning the repository
 
    You are free to **choose one of the following** instruction to download the program.
