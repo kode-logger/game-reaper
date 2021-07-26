@@ -13,6 +13,7 @@ from examples import custom_style_3  # used to change the style of PyInquirer
 # custom packages
 from Server.CroTorrent.CroTorrent import CroTorrents  # used to gather data from the crotorrents server
 
+# trying to load the meta data from the json
 try:
     with open('meta.json', 'r') as file:
         meta_data = json.load(file)
@@ -202,7 +203,3 @@ class CLI:
         print(help_content)
         goBack()
         self.main_menu()
-
-
-if __name__ == '__main__':
-    CLI(gameData={'crotorrents': None}).main_menu()

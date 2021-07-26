@@ -13,6 +13,7 @@ from CommandLineInterface import CLI
 # global variables
 gameData = {'crotorrents': None}
 
+# trying to load the meta data from the json
 try:
     with open('meta.json', 'r') as file:
         meta_data = json.load(file)
@@ -43,7 +44,8 @@ def program_description():
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description=program_description(), formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(description=program_description(),
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('-g', '--game', help='Search string, used to search for the game on available servers.')
     parser.add_argument('-s', '--server',
                         help='Name of the server to use. See help to know the Available server names')
@@ -53,16 +55,24 @@ if __name__ == '__main__':
     cmdArgs = vars(arguments)
 
     try:
-        searchQuery = cmdArgs['game']
+        searchQuery = cmdArgs['game']  # gets the search string
         if searchQuery is None:
             CLI(gameData=gameData).main_menu()
         else:
-            if cmdArgs['server'] is not None:
-                if cmdArgs['server'] == '1':
-                    croBoi = CroTorrents()  # A crotorrent Object to access all the methods.
-                    gameData['crotorrents'] = croBoi.croProcess(searchQuery)  # getting Game Data from the cro server
-                    croBoi.croVerbosePrinter() if cmdArgs[
-                        'verbose'] else croBoi.croPrinter()  # Do verbose print if requested
+            if cmdArgs['game'] == '':
+                print(colored.red("[!] Entered game name is empty !"))
+            else:
+                if cmdArgs['server'] is not None:
+                    if cmdArgs['server'] == '1':
+                        # A crotorrent Object to access all the methods.
+                        croBoi = CroTorrents()
+                        # getting Game Data from the cro server
+                        gameData['crotorrents'] = croBoi.croProcess(searchQuery)
+                        # Do verbose print if requested
+                        croBoi.croVerbosePrinter() if cmdArgs['verbose'] else croBoi.croPrinter()
+                else:
+                    print(colored.red('[!] game-reaper needs -g "<game name>" -s <server number> to process.'))
+                    print(colored.red('[!] Use: -h or --help argument to checkout the server numbers and more.'))
 
     except ConnectionError as con_error:
         print('\n[!] Cannot access Internet.')
