@@ -92,6 +92,9 @@ I recommend you to use `The Interactive Commandline` as it is really user friend
 
 ![image](https://user-images.githubusercontent.com/55313761/126973854-c7898c33-ae57-4c8f-9e88-e9cc7b34bd83.png)
 
+## 📢 Project Documentation
+
+The documentation is yet to be made, for now I suggest you to keep a tab on the [wiki](https://github.com/kode-logger/game-reaper/wiki) page.
 
 ## 📢 Have any doubts?
 
