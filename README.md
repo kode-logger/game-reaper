@@ -69,6 +69,11 @@ I recommend you to use `The Interactive Commandline` as it is really user friend
    Ubuntu:
    $> python3 greap.py
 ```
+#### Sample Screenshots
+
+![image](https://user-images.githubusercontent.com/55313761/126973338-06ee7921-f31a-4b14-a78f-090d14d82975.png)
+
+![image](https://user-images.githubusercontent.com/55313761/126973512-d2ab5457-6596-40df-bda5-a52d7a9aac53.png)
 
 - ### The Args:
 ```shell
@@ -83,6 +88,10 @@ I recommend you to use `The Interactive Commandline` as it is really user friend
    $> python3 greap.py -g "<game name>" -s 1 -v
    
 ```
+#### Sample Screenshots
+
+![image](https://user-images.githubusercontent.com/55313761/126973854-c7898c33-ae57-4c8f-9e88-e9cc7b34bd83.png)
+
 
 ## 📢 Have any doubts?
 
