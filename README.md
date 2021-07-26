@@ -26,12 +26,12 @@ I would really appreciate if you can support my project by fixing up issues and 
 This program requires python 3.x.x and some other python packages which can be installed by following the given steps.
 
 ### Packages used:
-- beautifulsoup4
-- argparse
-- pyfiglet
-- clint
-- PyInquirer
-- animation
+- [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
+- [argparse](https://pypi.org/project/argparse/)
+- [pyfiglet](https://github.com/pwaller/pyfiglet)
+- [clint](https://pypi.org/project/clint/)
+- [PyInquirer](https://github.com/CITGuru/PyInquirer)
+- [animation](https://github.com/bprinty/animation)
 
 ### 1.  Downloading / Cloning the repository
 
