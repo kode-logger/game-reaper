@@ -17,6 +17,16 @@ We will be releasing further updates and documentation soon.
 
 This program will look good with **Windows Terminal** or some other modern terminals.
 
+## 📢 Announcements
+##### Latest version: v0.0.1-Alpha
+- Introduced Interactive Commandline version
+- Introduced Commandline arguments
+- Now supports crotorrents server, discover about games from crotorrents
+- Fixed some printing issues
+##### Upcoming version: v0.0.3
+- New Server will be added on a monthly basis.
+- Proxy server can be expected in next release.
+
 ## 📢 Hey, you want to contribute?
 
 I would really appreciate if you can support my project by fixing up issues and bugs, especially adding new servers and stuff. To get a better understanding on the brains of this project, I suggest you to go through the [Developer Documentation](https://github.com/kode-logger/game-reaper/wiki/Dev-Doc). 
