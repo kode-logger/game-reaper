@@ -17,6 +17,16 @@ We will be releasing further updates and documentation soon.
 
 This program will look good with **Windows Terminal** or some other modern terminals.
 
+## 📢 Announcements
+##### Latest version: v0.0.1-Alpha
+- Introduced Interactive Commandline version
+- Introduced Commandline arguments
+- Now supports crotorrents server, discover about games from crotorrents
+- Fixed some printing issues
+##### Upcoming version: v0.0.3
+- New Server will be added on a monthly basis.
+- Proxy server can be expected in next release.
+
 ## 📢 Hey, you want to contribute?
 
 I would really appreciate if you can support my project by fixing up issues and bugs, especially adding new servers and stuff. To get a better understanding on the brains of this project, I suggest you to go through the [Developer Documentation](https://github.com/kode-logger/game-reaper/wiki/Dev-Doc). 
@@ -69,6 +79,11 @@ I recommend you to use `The Interactive Commandline` as it is really user friend
    Ubuntu:
    $> python3 greap.py
 ```
+#### Sample Screenshots
+
+![image](https://user-images.githubusercontent.com/55313761/126973338-06ee7921-f31a-4b14-a78f-090d14d82975.png)
+
+![image](https://user-images.githubusercontent.com/55313761/126973512-d2ab5457-6596-40df-bda5-a52d7a9aac53.png)
 
 - ### The Args:
 ```shell
@@ -83,6 +98,13 @@ I recommend you to use `The Interactive Commandline` as it is really user friend
    $> python3 greap.py -g "<game name>" -s 1 -v
    
 ```
+#### Sample Screenshots
+
+![image](https://user-images.githubusercontent.com/55313761/126973854-c7898c33-ae57-4c8f-9e88-e9cc7b34bd83.png)
+
+## 📢 Project Documentation
+
+The documentation is yet to be made, for now I suggest you to keep a tab on the [wiki](https://github.com/kode-logger/game-reaper/wiki) page.
 
 ## 📢 Have any doubts?
 
