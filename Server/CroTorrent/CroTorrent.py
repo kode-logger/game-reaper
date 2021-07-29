@@ -6,35 +6,16 @@ import re
 import textwrap
 import animation
 from clint.textui import colored, puts  # used to manage CLI backend and a bit of frontend
+from Server.ServerTemplate import MyServer
 
 
-class CroTorrents:
+class CroTorrents(MyServer):
     def __init__(self):
         """
         constructor for CroTorrents class.
         :return: None
         """
-
-        self.gameData = list()
-        self.searchLink = ''
-        self.searchString = ''
-
-    def get_searchData(self):
-        """
-        A method to return the searchLink string.
-        :return: searchLink (String), holds the website link of the search query.
-        """
-
-        return self.searchLink
-
-    def set_searchString(self, search):
-        """
-        A setter function to set the value of searchString
-        :param search: A string that contains the user input
-        :return: None
-        """
-
-        self.searchString = search
+        super().__init__()
 
     def set_searchData(self):
         """
