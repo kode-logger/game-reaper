@@ -5,13 +5,17 @@
   },
   "program": {
     "name": "game-reaper",
-    "version": "0.0.1 Alpha",
+    "version": "0.0.3",
     "link": "https://github.com/kode-logger/game-reaper",
     "docs": "https://github.com/kode-logger/game-reaper/wiki",
     "servers": [
       {
         "name": "crotorrents",
         "link": "https://crotorrents.com/"
+      },
+      {
+        "name": "skidrow",
+        "link": "https://www.skidrowreloaded.com/"
       }
     ]
   }

@@ -12,6 +12,7 @@ from examples import custom_style_3  # used to change the style of PyInquirer
 
 # custom packages
 from Server.CroTorrent.CroTorrent import CroTorrents  # used to gather data from the crotorrents server
+from Server.SkidrowReloaded.Skidrow import Skidrow  # used to gather data from the skidrow server
 
 # trying to load the meta data from the json
 try:
@@ -60,12 +61,16 @@ Version: {meta_data['program']['version']}
 class CLI:
 
     def __init__(self, gameData):
+        #  Initialising local variables
         self.searchQuery = ''
         self.gameData = gameData
         self.firstTimeVisit = True
         self.selectedServers = []
         self.serverGameList = []
+
+        # Initialising server instances
         self.croBoi = None
+        self.skidBoi = None
 
     def main_menu(self):
         # if user is on the menu for the first time, then display author note. Else print only the heading.
@@ -109,11 +114,15 @@ class CLI:
             for server in self.selectedServers:
                 if server == 'crotorrents':
                     self.gameData['crotorrents'] = self.croBoi.croProcess(self.searchQuery)
+                if server == 'skidrow':
+                    self.gameData['skidrow'] = self.skidBoi.skidProcess(self.searchQuery)
 
     def showGameDetails(self, game_name, game_server):
         header()
         if game_server == 'crotorrents':
             self.croBoi.croVerboseGamePrinter(game_name)
+        elif game_server == 'skidrow':
+            self.skidBoi.skidVerboseGamePrinter(game_name)
         goBack()
         self.view_game_list()
 
@@ -183,6 +192,7 @@ class CLI:
 
     def initServerObjects(self):
         self.croBoi = CroTorrents()
+        self.skidBoi = Skidrow()
 
     def greap_help(self):
         header()

@@ -8,10 +8,11 @@ from clint.textui import colored
 
 # custom packages
 from Server.CroTorrent.CroTorrent import CroTorrents
+from Server.SkidrowReloaded.Skidrow import Skidrow
 from CommandLineInterface import CLI
 
 # global variables
-gameData = {'crotorrents': None}
+gameData = {'crotorrents': None, 'skidrow': None}
 
 # trying to load the meta data from the json
 try:
@@ -70,6 +71,14 @@ if __name__ == '__main__':
                         gameData['crotorrents'] = croBoi.croProcess(searchQuery)
                         # Do verbose print if requested
                         croBoi.croVerbosePrinter() if cmdArgs['verbose'] else croBoi.croPrinter()
+
+                    elif cmdArgs['server'] == '2':
+                        # A skidrow Object to access all the methods.
+                        skidBoi = Skidrow()
+                        # getting Game Data from the skidrow server
+                        gameData['skidrow'] = skidBoi.skidProcess(searchQuery)
+                        # Do verbose print if requested
+                        skidBoi.skidVerbosePrinter() if cmdArgs['verbose'] else skidBoi.skidPrinter()
                 else:
                     print(colored.red('[!] game-reaper needs -g "<game name>" -s <server number> to process.'))
                     print(colored.red('[!] Use: -h or --help argument to checkout the server numbers and more.'))
