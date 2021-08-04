@@ -24,6 +24,7 @@ This program will look good with **Windows Terminal** or some other modern termi
 - Now supports crotorrents server, discover about games from crotorrents
 - Fixed some printing issues
 ##### Upcoming version: v0.0.3
+- Some UI Improvements
 - New Server will be added on a monthly basis.
 - Proxy server can be expected in next release.
 
