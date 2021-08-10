@@ -48,8 +48,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=program_description(),
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('-g', '--game', help='Search string, used to search for the game on available servers.')
-    parser.add_argument('-s', '--server',
-                        help='Name of the server to use. See help to know the Available server names')
+    parser.add_argument('-s', '--server', help='Name of the server to use. See help to know the Available server names')
     parser.add_argument('-v', '--verbose', action='store_true', help='Views more detail on the game')
     arguments = parser.parse_args()
 
