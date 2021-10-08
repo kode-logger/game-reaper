@@ -18,15 +18,20 @@ We will be releasing further updates and documentation soon.
 This program will look good with **Windows Terminal** or some other modern terminals.
 
 ## 📢 Announcements
+
+##### PROJECT ON HOLD   
+- I am afraid to mention that I have kept this project development on **hold** as I am busy with learning other tools and frameworks. Don't worry, will be continuing soon. Until then I would be happy to recieve any feedbacks and feature requests.
+
+##### Upcoming version: v0.0.3
+- Some UI Improvements
+- New Server will be added on a monthly basis.
+- Proxy server can be expected in next release.
+
 ##### Latest version: v0.0.1-Alpha
 - Introduced Interactive Commandline version
 - Introduced Commandline arguments
 - Now supports crotorrents server, discover about games from crotorrents
 - Fixed some printing issues
-##### Upcoming version: v0.0.3
-- Some UI Improvements
-- New Server will be added on a monthly basis.
-- Proxy server can be expected in next release.
 
 ## 📢 Hey, you want to contribute?
 
